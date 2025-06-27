@@ -207,7 +207,6 @@ def dataset_to_graph(task, data_splits, embed, mode='tra-dev', edge_type='a', ta
     directed = True
 
     if edge_type == 's':
-        # edges = torch.triu(similarity_matrix, diagonal=1) > tau # 上三角矩阵不包括对角线
         sem_edges = similarity_matrix > tau
         if ~use_selfloops:
             sem_edges.fill_diagonal_(False)
