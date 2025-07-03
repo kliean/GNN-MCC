@@ -284,10 +284,7 @@ def run(task_name = "informative", alpha=0.2, beta=0.5, gamma=0.2, l1=0.2):
     return acc, report, cm
 
 def objective_function(alpha, beta, gamma, task = args.task):
-    start_time = time.time()
     acc, report, cm = run(task, alpha, beta, gamma)
-    end_time = time.time()
-    print(f"单次运行时间: {end_time - start_time:.4f} 秒")
     torch.cuda.empty_cache()
     gc.collect()
     return acc, report, cm
