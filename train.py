@@ -299,11 +299,12 @@ def run(task_name = "informative", alpha=0.2):
         acc, precision, recall, f1 = round(acc, 4), round(precision, 4), round(recall, 4), round(f1, 4)
         evaluation = (acc, precision, recall, f1)
         if test:
-            print("node classification report:\n", node_report)
-            print('node confusion matrix:\n', node_cm)
-            print("pair classification report:\n", pair_report)
-            print("pair confusion matrix:\n", pair_cm)
-            print(f'node weighted avg: {acc} {precision} {recall} {f1}')
+            if args.predict_pairs:
+                print("pair classification report:\n", pair_report)
+                print("pair confusion matrix:\n", pair_cm)
+            else:
+                print("node classification report:\n", node_report)
+                print('node confusion matrix:\n', node_cm)
 
         if predict_pairs:
             return total_loss / len(batches), correct / total, loss_list, pair_report, pair_cm, evaluation
