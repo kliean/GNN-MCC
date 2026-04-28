@@ -18,5 +18,4 @@ step 2:
 python train.py
 ```
 
-Contact Us:
-  Email: 1755330594@qq.com
+Contact Us: 1755330594@qq.com
